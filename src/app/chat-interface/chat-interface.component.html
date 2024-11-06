@@ -1,0 +1,36 @@
+`<div class="chat-container">
+  <header>
+    <h1>AI Assistant</h1>
+  </header>
+
+  <main>
+    <div #chatContainer class="messages-container">
+      @for (msg of currentChat.messages; track msg.timestamp) {
+        <chat-message [message]="msg"></chat-message>
+      }
+      
+      @if (isTyping) {
+        <div class="typing-indicator">
+          AI is typing...
+        </div>
+      }
+    </div>
+  </main>
+
+  <footer>
+    <form (ngSubmit)="sendMessage()">
+      <input
+        type="text"
+        [(ngModel)]="newMessage"
+        name="message"
+        placeholder="Type your message..."
+      >
+      <button
+        type="submit"
+        [disabled]="!newMessage.trim()"
+      >
+        Send
+      </button>
+    </form>
+  </footer>
+</div>`

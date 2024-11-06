@@ -1,0 +1,11 @@
+<div class="app-container">
+  <app-sidenav
+    [chatHistory]="chatService.chatHistory"
+    [activeId]="chatService.activeChatId"
+    (onNewChat)="chatService.startNewChat()"
+    (onSelectChat)="chatService.selectChat($event)"
+  />
+  <app-chat-interface
+    [currentChat]="chatService.currentChat"
+  />
+</div>
